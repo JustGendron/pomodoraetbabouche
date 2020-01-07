@@ -23,6 +23,7 @@ namespace pomodoraetbabouche
         public MainWindow()
         {
             InitializeComponent();
+            //lol mdr
         }
     }
 }
