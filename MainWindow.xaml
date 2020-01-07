@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pomodoraetbabouche"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="432.28">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="366,186,0,0" TextWrapping="Wrap" Text="Test" VerticalAlignment="Top"/>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="70,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18"/>
+        <Button Content="Stop" HorizontalAlignment="Left" Margin="312,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18"/>
+        <Button Content="Pause" HorizontalAlignment="Left" Margin="190,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="131" Margin="155,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="135"/>
+        <Label Content="25:00" HorizontalAlignment="Left" Margin="190,136,0,0" VerticalAlignment="Top" FontSize="24"/>
 
     </Grid>
 </Window>
