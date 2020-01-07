@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace pomodoraetbabouche
 {
@@ -20,10 +21,35 @@ namespace pomodoraetbabouche
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        int i = 100;
+        TimeSpan work = new TimeSpan(0,0,25,0,0);
+        TimeSpan rest = new TimeSpan(0,0,5,0,0);
+        TimeSpan sec = new TimeSpan(0,0,0,1,0);
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
-            //lol mdr
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            work = work.Subtract(sec);
+            Timer.Content =  work.ToString(@"mm\:ss");
+            CommandManager.InvalidateRequerySuggested();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Start();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Stop();
         }
     }
 }
