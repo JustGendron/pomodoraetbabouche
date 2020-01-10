@@ -12,54 +12,72 @@ namespace pomodoraetbabouche
     {
 
         int i = 100;
-        int iteration = 0;
+        int iteration = 1;
         Boolean workTime = true;
-        TimeSpan work = new TimeSpan(0,0,0,25,0);
-        TimeSpan rest = new TimeSpan(0,0,0,5,0);
+        Boolean finalRestBool = true;
+        TimeSpan work = new TimeSpan(0,0,0,5,0);
+        TimeSpan rest = new TimeSpan(0,0,0,2,0);
         TimeSpan sec = new TimeSpan(0,0,0,1,0);
         TimeSpan end = new TimeSpan(0, 0, 0, 0, 0);
+        TimeSpan finalRest = new TimeSpan(0, 0, 0, 15, 0);
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        TimeSpan tempsRestant = new TimeSpan();
+
         public MainWindow()
         {
             InitializeComponent();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            tempsRestant = tempsRestant + work;
 
         }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            if (iteration < 3)
+            if (iteration < 4)
             {
-                if (workTime)
-                {
-                    work = work.Subtract(sec);
-                    ChronoTimer.Content = work.ToString(@"mm\:ss");
-                }
-                else
-                {
-                    rest = rest.Subtract(sec);
-                    ChronoTimer.Content = rest.ToString(@"mm\:ss");
-                }
+                iterationaff.Content = iteration;
+                tempsRestant = tempsRestant.Subtract(sec);
+                ChronoTimer.Content = tempsRestant.ToString(@"mm\:ss");
 
-                if (end == work)
+                if (end == tempsRestant)
                 {
-                    iteration++;
-                    work = new TimeSpan(0, 0, 0, 25, 0);
-                    workTime = false;
-                }
-                if (end == rest)
-                {
-                    rest = new TimeSpan(0, 0, 0, 5, 0);
-                    workTime = true;
+                    tempsRestant = new TimeSpan();
+                    if (!workTime)
+                    {
+                        iteration++;
+                        tempsRestant += work;
+                        workTime = true;
+                    } else
+                    {
+                        if (iteration < 4)
+                        {
+                            tempsRestant += rest;
+                            workTime = false;
+                        }
+                    }
                 }
 
             }
             else
             {
-                dispatcherTimer.Stop();
-                ChronoTimer.Content = "Fini !";
+                tempsRestant = tempsRestant.Subtract(sec);
+                ChronoTimer.Content = tempsRestant.ToString(@"mm\:ss");
 
+                if (end == tempsRestant)
+                {
+                    if (finalRestBool)
+                    {
+
+                        tempsRestant = new TimeSpan();
+                        tempsRestant += finalRest;
+                        finalRestBool = false;
+                    } else
+                    {
+                        dispatcherTimer.Stop();
+                        ChronoTimer.Content = "Fini !";
+                    }
+                }
             }
             CommandManager.InvalidateRequerySuggested();
         }
