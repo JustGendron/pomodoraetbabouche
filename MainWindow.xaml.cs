@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using test;
 
 namespace pomodoraetbabouche
 {
@@ -50,6 +51,12 @@ namespace pomodoraetbabouche
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             dispatcherTimer.Stop();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            UserControl3 l = new UserControl3();
+            this.Content = l;
         }
     }
 }

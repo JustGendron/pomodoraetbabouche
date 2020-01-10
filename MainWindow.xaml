@@ -4,14 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pomodoraetbabouche"
+     
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="432.28">
+
+
+  
+        
     <Grid>
-        <Button Content="Start" HorizontalAlignment="Left" Margin="70,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Click"/>
-        <Button Content="Stop" HorizontalAlignment="Left" Margin="312,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18"/>
-        <Button Content="Pause" HorizontalAlignment="Left" Margin="190,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Click_1"/>
-        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="131" Margin="155,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="135"/>
-        <Label x:Name="Timer" Content="25:00" HorizontalAlignment="Left" Margin="190,136,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="173*"/>
+            <RowDefinition Height="247*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="70,134.19,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Click" Grid.Row="1"/>
+        <Button Content="Stop" HorizontalAlignment="Left" Margin="312,134.19,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Grid.Row="1"/>
+        <Button Content="Pause" HorizontalAlignment="Left" Margin="190,134.19,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Click_1" Grid.Row="1"/>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="131" Margin="155,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="135" Grid.RowSpan="2"/>
+        <Label x:Name="Timer" Content="25:00" HorizontalAlignment="Left" Margin="190,136,0,0" VerticalAlignment="Top" FontSize="24" Grid.RowSpan="2"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="424"/>
+        <Button Content="lol" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="102" Height="36" Click="Button_Click_2"/>
+        <Button Content="blue" HorizontalAlignment="Left" Margin="155,0,0,0" VerticalAlignment="Top" Width="102" Height="36"/>
+  
 
     </Grid>
 </Window>
