@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 
+
 namespace pomodoraetbabouche
 {
     /// <summary>
@@ -19,8 +20,8 @@ namespace pomodoraetbabouche
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Pomodoro p = new Pomodoro();
-            this.Content = p;
+           
+
         }
     }
 }
