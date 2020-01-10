@@ -88,6 +88,7 @@ namespace pomodoraetbabouche
         private void Button_Start(object sender, RoutedEventArgs e)
         {
             dispatcherTimer.Start();
+            LabelPomodoro.IsEnabled = false;
         }
 
         private void Button_Pause(object sender, RoutedEventArgs e)
@@ -105,6 +106,8 @@ namespace pomodoraetbabouche
             tempsRestant += work;
             workTime = true;
             finalRestBool = true;
+            LabelPomodoro.IsEnabled = true;
+            LabelPomodoro.Text = "";
         }
 
         private void LabelPomodoro_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
