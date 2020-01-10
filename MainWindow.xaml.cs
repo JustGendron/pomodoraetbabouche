@@ -23,5 +23,11 @@ namespace pomodoraetbabouche
            
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Pomodoro p = new Pomodoro();
+            this.Content = p;
+        }
     }
 }
