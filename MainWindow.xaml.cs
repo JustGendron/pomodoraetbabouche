@@ -44,6 +44,7 @@ namespace pomodoraetbabouche
                     if (!workTime)
                     {
                         iteration++;
+                        iterationaff.Content = iteration;
                         tempsRestant += work;
                         workTime = true;
                     } else
@@ -73,6 +74,7 @@ namespace pomodoraetbabouche
                     } else
                     {
                         dispatcherTimer.Stop();
+                        iterationaff.Content = "";
                         ChronoTimer.Content = "Fini !";
                     }
                 }

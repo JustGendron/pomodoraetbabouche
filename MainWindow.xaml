@@ -12,7 +12,7 @@
         <Button Content="Pause" HorizontalAlignment="Left" Margin="190,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Pause"/>
         <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="131" Margin="155,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="135"/>
         <Label x:Name="ChronoTimer" Content="25:00" HorizontalAlignment="Left" Margin="190,136,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="iterationaff" Content="" HorizontalAlignment="Left" Margin="212,366,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="32"/>
+        <Label x:Name="iterationaff" Content="" HorizontalAlignment="Left" Margin="215,178,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="32"/>
 
     </Grid>
 </Window>
