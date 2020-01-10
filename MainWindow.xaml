@@ -7,12 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="432.28">
     <Grid>
-        <Button Content="Start" HorizontalAlignment="Left" Margin="70,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Start"/>
-        <Button Content="Stop" HorizontalAlignment="Left" Margin="312,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Stop"/>
-        <Button Content="Pause" HorizontalAlignment="Left" Margin="190,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Pause"/>
+        <Button x:Name="ButtonStart" Content="Start" HorizontalAlignment="Left" Margin="70,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Start"/>
+        <Button x:Name="ButtonStop" Content="Stop" HorizontalAlignment="Left" Margin="312,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Stop"/>
+        <Button x:Name="ButtonPause" Content="Pause" HorizontalAlignment="Left" Margin="190,307,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Pause"/>
         <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="131" Margin="155,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="135"/>
         <Label x:Name="ChronoTimer" Content="25:00" HorizontalAlignment="Left" Margin="190,136,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="iterationaff" Content="" HorizontalAlignment="Left" Margin="215,178,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="32"/>
+        <TextBox x:Name="LabelPomodoro" HorizontalAlignment="Left" Height="23" Margin="155,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" TextChanged="LabelPomodoro_TextChanged"/>
+        <Label Content="Pomodoro Name :" HorizontalAlignment="Left" Margin="170,237,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

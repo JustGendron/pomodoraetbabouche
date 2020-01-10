@@ -27,6 +27,9 @@ namespace pomodoraetbabouche
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             tempsRestant = tempsRestant + work;
+            ButtonStart.IsEnabled = false;
+            ButtonPause.IsEnabled = false;
+            ButtonStop.IsEnabled = false;
 
         }
 
@@ -102,6 +105,21 @@ namespace pomodoraetbabouche
             tempsRestant += work;
             workTime = true;
             finalRestBool = true;
+        }
+
+        private void LabelPomodoro_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if(LabelPomodoro.Text.Length == 0)
+            {
+                ButtonStart.IsEnabled = false;
+                ButtonPause.IsEnabled = false;
+                ButtonStop.IsEnabled = false;
+            } else
+            {
+                ButtonStart.IsEnabled = true;
+                ButtonPause.IsEnabled = true;
+                ButtonStop.IsEnabled = true;
+            }
         }
     }
 }
