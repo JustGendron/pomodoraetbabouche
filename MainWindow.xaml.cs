@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
+using test;
 
 namespace pomodoraetbabouche
 {
@@ -123,6 +124,7 @@ namespace pomodoraetbabouche
                 ButtonPause.IsEnabled = true;
                 ButtonStop.IsEnabled = true;
             }
+
         }
     }
 }
