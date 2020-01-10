@@ -10,8 +10,6 @@ namespace pomodoraetbabouche
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        int i = 100;
         int iteration = 1;
         Boolean workTime = true;
         Boolean finalRestBool = true;
@@ -94,7 +92,14 @@ namespace pomodoraetbabouche
 
         private void Button_Stop(object sender, RoutedEventArgs e)
         {
-
+            dispatcherTimer.Stop();
+            ChronoTimer.Content = "25:00";
+            iteration = 1;
+            iterationaff.Content = "";
+            tempsRestant = new TimeSpan();
+            tempsRestant += work;
+            workTime = true;
+            finalRestBool = true;
         }
     }
 }
