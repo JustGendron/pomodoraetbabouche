@@ -17,10 +17,10 @@ namespace pomodoraetbabouche
         int iteration = 1;
         Boolean workTime = true;
         Boolean finalRestBool = true;
-        TimeSpan work = new TimeSpan(0, 0, 0, 5, 0);
-        TimeSpan rest = new TimeSpan(0, 0, 0, 2, 0);
+        TimeSpan work = new TimeSpan(0, 0, 25, 0, 0);
+        TimeSpan rest = new TimeSpan(0, 0, 5, 0, 0);
         TimeSpan sec = new TimeSpan(0, 0, 0, 1, 0);
-        TimeSpan finalRest = new TimeSpan(0, 0, 0, 15, 0);
+        TimeSpan finalRest = new TimeSpan(0, 0, 15, 0, 0);
         TimeSpan end = new TimeSpan(0, 0, 0, 0, 0);
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         TimeSpan tempsRestant = new TimeSpan();
