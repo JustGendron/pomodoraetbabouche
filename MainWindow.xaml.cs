@@ -64,7 +64,7 @@ namespace pomodoraetbabouche
             CommandManager.InvalidateRequerySuggested();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Start(object sender, RoutedEventArgs e)
         {
             dispatcherTimer.Start();
         }
