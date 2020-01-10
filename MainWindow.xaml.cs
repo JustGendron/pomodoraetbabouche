@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace pomodoraetbabouche
@@ -23,9 +12,12 @@ namespace pomodoraetbabouche
     {
 
         int i = 100;
-        TimeSpan work = new TimeSpan(0,0,25,0,0);
-        TimeSpan rest = new TimeSpan(0,0,5,0,0);
+        int iteration = 0;
+        Boolean workTime = true;
+        TimeSpan work = new TimeSpan(0,0,0,25,0);
+        TimeSpan rest = new TimeSpan(0,0,0,5,0);
         TimeSpan sec = new TimeSpan(0,0,0,1,0);
+        TimeSpan end = new TimeSpan(0, 0, 0, 0, 0);
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         public MainWindow()
         {
@@ -37,8 +29,38 @@ namespace pomodoraetbabouche
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            work = work.Subtract(sec);
-            Timer.Content =  work.ToString(@"mm\:ss");
+            if (iteration < 3)
+            {
+                if (workTime)
+                {
+                    work = work.Subtract(sec);
+                    ChronoTimer.Content = work.ToString(@"mm\:ss");
+                }
+                else
+                {
+                    rest = rest.Subtract(sec);
+                    ChronoTimer.Content = rest.ToString(@"mm\:ss");
+                }
+
+                if (end == work)
+                {
+                    iteration++;
+                    work = new TimeSpan(0, 0, 0, 25, 0);
+                    workTime = false;
+                }
+                if (end == rest)
+                {
+                    rest = new TimeSpan(0, 0, 0, 5, 0);
+                    workTime = true;
+                }
+
+            }
+            else
+            {
+                dispatcherTimer.Stop();
+                ChronoTimer.Content = "Fini !";
+
+            }
             CommandManager.InvalidateRequerySuggested();
         }
 
@@ -47,9 +69,14 @@ namespace pomodoraetbabouche
             dispatcherTimer.Start();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Pause(object sender, RoutedEventArgs e)
         {
             dispatcherTimer.Stop();
+        }
+
+        private void Button_Stop(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
