@@ -1,8 +1,5 @@
-﻿using System;
+﻿
 using System.Windows;
-using System.Windows.Input;
-using System.Windows.Threading;
-
 
 namespace pomodoraetbabouche
 {
@@ -11,23 +8,24 @@ namespace pomodoraetbabouche
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
-
+            MainPageScreen();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void MainPageScreen()
         {
-           
-
+            MainPage mp = new MainPage(this);
+            Content = mp;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        public void PomodoroScreen()
         {
-            Pomodoro p = new Pomodoro();
-            this.Content = p;
+            Pomodoro po = new Pomodoro(this);
+            Content = po;
         }
+
     }
+
 }

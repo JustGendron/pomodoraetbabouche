@@ -4,68 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pomodoraetbabouche"
-     
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="432.28">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <DockPanel Background="Firebrick" Grid.Row="0" Grid.Column="0" Grid.RowSpan="11" Grid.ColumnSpan="2">
-            <StackPanel>
-                <Button Content="Planification" Height="50" Foreground="#FF811717" Margin="0,20,0,0">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button Content="Chronometre" Height="50" Foreground="#FF811717" Margin="0,20,0,0" Click="Button_Click_1">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button Content="Statistique" Height="50" Foreground="#FF811717" Margin="0,50,0,0">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-            </StackPanel>
-        </DockPanel>
-        <Label Content="PomoDora &amp; Babouche" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="234" Grid.ColumnSpan="3" Height="38" FontFamily="Comic Sans MS" FontSize="22"/>
-        <Label Content="Remy Noel &amp; Justin Gendron" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="235" Height="38"/>
-        <Image Grid.ColumnSpan="3" Grid.Column="2" HorizontalAlignment="Left" Height="170" Margin="10,10,0,0" Grid.Row="4" Grid.RowSpan="5" VerticalAlignment="Top" Width="234" Source="angry.png"/>
-
+        
     </Grid>
 </Window>
