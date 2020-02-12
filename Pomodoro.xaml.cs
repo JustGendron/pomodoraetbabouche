@@ -24,11 +24,12 @@ namespace pomodoraetbabouche
         TimeSpan end = new TimeSpan(0, 0, 0, 0, 0);
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         TimeSpan tempsRestant = new TimeSpan();
+        MainWindow mw = new MainWindow();
 
         /// <summary>
         /// Code joué lors de l'initialisation du composant avec le Handler qui permet de faire le décompte
         /// </summary>
-        public Pomodoro()
+        public Pomodoro(MainWindow mainWindow)
         {
             InitializeComponent();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
@@ -37,7 +38,7 @@ namespace pomodoraetbabouche
             ButtonStart.IsEnabled = false;
             ButtonPause.IsEnabled = false;
             ButtonStop.IsEnabled = false;
-
+            mw = mainWindow;
         }
 
         /// <summary>
@@ -170,6 +171,11 @@ namespace pomodoraetbabouche
         }
         
         private void Storage() { 
+        }
+
+        private void Button_return(object sender, RoutedEventArgs e)
+        {
+            mw.MainPageScreen();
         }
     }
 }
