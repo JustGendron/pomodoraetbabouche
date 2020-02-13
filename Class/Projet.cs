@@ -8,8 +8,19 @@ namespace pomodoraetbabouche.Class
 {
     class Projet
     {
-        private string id { get; set; }
-        private string Name { get; set; }
-        private int nombrePomodoro { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public int nombrePomodoro { get; set; }
+
+        public Projet()
+        {
+        }
+
+        public Projet(int id, string name, int nombrePomodoro)
+        {
+            this.id = id;
+            this.name = name;
+            this.nombrePomodoro = nombrePomodoro;
+        }
     }
 }

@@ -102,17 +102,67 @@
             </StackPanel>
         </DockPanel>
 
-        <DockPanel Background="White" Grid.Row="0" Grid.Column="2" Grid.RowSpan="11" Grid.ColumnSpan="3" x:Name="DockListeProjets">
+        <DockPanel Background="White" Grid.Row="0" Grid.Column="2" Grid.RowSpan="11" Grid.ColumnSpan="3" x:Name="DockListeProjets" Visibility="Collapsed">
             <StackPanel>
                 <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20" FontWeight="Bold">Liste Projets</Label>
-                <ListView Margin="10" Name="NomsProjets">
+                <ListView Margin="10" Name="NomsProjets" MaxHeight="250">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Numero" Width="70" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Nom Projet" Width="160" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Nom Projet" Width="Auto" DisplayMemberBinding="{Binding name}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
+            </StackPanel>
+        </DockPanel>
+
+        <DockPanel Background="White" Grid.Row="0" Grid.Column="2" Grid.RowSpan="11" Grid.ColumnSpan="3" x:Name="DockModifProjets" Visibility="Collapsed">
+            <StackPanel>
+                <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20" FontWeight="Bold">Modification Projet</Label>
+                <ComboBox Name="ComboBoxProjets" Margin="10" MaxHeight="250">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBox x:Name="LabelModifProjet" HorizontalAlignment="Center" Height="35" Margin="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="LabelModifNomProjet_TextChanged" Grid.ColumnSpan="2" Grid.Column="1"/>
+                <Button Content="Modification" Height="30" Width="150" Foreground="#FF811717" Margin="0,10,0,0" RenderTransformOrigin="0.553,2.031" Click="Button_Modif">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </DockPanel>
+
+        <DockPanel Background="White" Grid.Row="0" Grid.Column="2" Grid.RowSpan="11" Grid.ColumnSpan="3" x:Name="DockSupprProjets" Visibility="Collapsed">
+            <StackPanel>
+                <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20" FontWeight="Bold">Suppression Projet</Label>
+                <ComboBox Name="ComboBoxProjetsASuppr" Margin="10" MaxHeight="250">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Content="Suppression" Height="30" Width="150" Foreground="#FF811717" Margin="0,10,0,0" RenderTransformOrigin="0.553,2.031" Click="Button_Suppression">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </StackPanel>
         </DockPanel>
     </Grid>
