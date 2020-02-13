@@ -26,6 +26,12 @@ namespace pomodoraetbabouche
             Content = po;
         }
 
+        public void GestionPomodoroScreen()
+        {
+            GestionPomodoro gp = new GestionPomodoro(this);
+            Content = gp;
+        }
+
     }
 
 }

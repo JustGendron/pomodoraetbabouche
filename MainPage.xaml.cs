@@ -25,10 +25,14 @@ namespace pomodoraetbabouche
            
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Chronometre(object sender, RoutedEventArgs e)
         {
             mw.PomodoroScreen();
         }
 
+        private void Button_Gestion_Pomodoros(object sender, RoutedEventArgs e)
+        {
+            mw.GestionPomodoroScreen();
+        }
     }
 }
