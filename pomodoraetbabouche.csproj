@@ -70,11 +70,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="GestionPomodoro.xaml">
+    <Page Include="UserControl\GestionPomodoro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="UserControl\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -83,10 +83,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Class\Projet.cs" />
-    <Compile Include="GestionPomodoro.xaml.cs">
+    <Compile Include="UserControl\GestionPomodoro.xaml.cs">
       <DependentUpon>GestionPomodoro.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="UserControl\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -94,7 +94,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pomodoro.xaml">
+    <Page Include="UserControl\Pomodoro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,7 +103,7 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pomodoro.xaml.cs">
+    <Compile Include="UserControl\Pomodoro.xaml.cs">
       <DependentUpon>Pomodoro.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
