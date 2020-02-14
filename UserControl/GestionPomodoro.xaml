@@ -118,7 +118,7 @@
         <DockPanel Background="White" Grid.Row="0" Grid.Column="2" Grid.RowSpan="11" Grid.ColumnSpan="3" x:Name="DockModifProjets" Visibility="Collapsed">
             <StackPanel>
                 <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20" FontWeight="Bold">Modification Projet</Label>
-                <ComboBox Name="ComboBoxProjets" Margin="10" MaxHeight="250">
+                <ComboBox Name="ComboBoxProjets" Margin="10" MaxHeight="250" SelectionChanged="ComboBoxProjets_SelectionChanged">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -128,7 +128,7 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
                 <TextBox x:Name="LabelModifProjet" HorizontalAlignment="Center" Height="35" Margin="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="LabelModifNomProjet_TextChanged" Grid.ColumnSpan="2" Grid.Column="1"/>
-                <Button Content="Modification" Height="30" Width="150" Foreground="#FF811717" Margin="0,10,0,0" RenderTransformOrigin="0.553,2.031" Click="Button_Modif">
+                <Button x:Name="ButtonModifProjet" Content="Modification" Height="30" Width="150" Foreground="#FF811717" Margin="0,10,0,0" RenderTransformOrigin="0.553,2.031" Click="Button_Modif" IsEnabled="False">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF3F3F3" Offset="0"/>
@@ -144,7 +144,7 @@
         <DockPanel Background="White" Grid.Row="0" Grid.Column="2" Grid.RowSpan="11" Grid.ColumnSpan="3" x:Name="DockSupprProjets" Visibility="Collapsed">
             <StackPanel>
                 <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20" FontWeight="Bold">Suppression Projet</Label>
-                <ComboBox Name="ComboBoxProjetsASuppr" Margin="10" MaxHeight="250">
+                <ComboBox Name="ComboBoxProjetsASuppr" Margin="10" MaxHeight="250" SelectionChanged="ComboBoxProjetsASuppr_SelectionChanged">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -153,7 +153,7 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button Content="Suppression" Height="30" Width="150" Foreground="#FF811717" Margin="0,10,0,0" RenderTransformOrigin="0.553,2.031" Click="Button_Suppression">
+                <Button x:Name="ButtonSuppresionProjet" Content="Suppression" Height="30" Width="150" Foreground="#FF811717" Margin="0,10,0,0" RenderTransformOrigin="0.553,2.031" Click="Button_Suppression" IsEnabled="False">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF3F3F3" Offset="0"/>

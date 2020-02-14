@@ -47,6 +47,7 @@ namespace pomodoraetbabouche
             CollapseAll();
             entry = "";
             DockAjouter.Visibility = Visibility.Visible;
+            ButtonAjoutProjet.IsEnabled = false;
 
         }
 
@@ -55,6 +56,7 @@ namespace pomodoraetbabouche
             CollapseAll();
             entry = "";
             DockModifProjets.Visibility = Visibility.Visible;
+            ButtonModifProjet.IsEnabled = false;
         }
 
         private void Button_Suppression_Projet(object sender, RoutedEventArgs e)
@@ -62,6 +64,7 @@ namespace pomodoraetbabouche
             CollapseAll();
             entry = "";
             DockSupprProjets.Visibility = Visibility.Visible;
+            ButtonSuppresionProjet.IsEnabled = false;
         }
 
         private void Button_Retour(object sender, RoutedEventArgs e)
@@ -76,16 +79,26 @@ namespace pomodoraetbabouche
             connection.Insert(pro);
             LabelProjet.Text = "";
             entry = "";
+            ListProjectBuild();
         }
 
         private void Button_Modif(object sender, RoutedEventArgs e)
         {
-
+            SQLiteConnection connection = new SQLiteConnection(Constantes.pathDb);
+            Projet proj = (Projet)ComboBoxProjets.SelectedValue;
+            proj.name = entry;
+            connection.Update(proj);
+            LabelModifProjet.Text = "";
+            entry = "";
+            ListProjectBuild();
         }
 
         private void Button_Suppression(object sender, RoutedEventArgs e)
         {
-
+            SQLiteConnection connection = new SQLiteConnection(Constantes.pathDb);
+            Projet proj = (Projet)ComboBoxProjetsASuppr.SelectedValue;
+            connection.Delete(proj);
+            ListProjectBuild();
         }
 
         private void LabelNomProjet_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -93,7 +106,8 @@ namespace pomodoraetbabouche
             if (LabelProjet.Text.Length == 0)
             {
                 ButtonAjoutProjet.IsEnabled = false;
-            } else
+            } 
+            else
             {
                 ButtonAjoutProjet.IsEnabled = true;
                 entry = LabelProjet.Text;
@@ -102,7 +116,43 @@ namespace pomodoraetbabouche
 
         private void LabelModifNomProjet_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            
+            if (LabelModifProjet.Text.Length == 0)
+            {
+                ButtonModifProjet.IsEnabled = false;
+            }
+            else
+            {
+                ButtonModifProjet.IsEnabled = true;
+                entry = LabelModifProjet.Text;
+            }
+        }
+
+        private void ComboBoxProjets_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Si Aucun nom renseigné, alors les boutons sont désactivés
+            if (ComboBoxProjets.SelectedIndex == -1)
+            {
+                ButtonModifProjet.IsEnabled = false;
+            }
+            // Si un nom est renseigné, alors les boutons sont activés
+            else
+            {
+                ButtonModifProjet.IsEnabled = true;
+            }
+        }
+
+        private void ComboBoxProjetsASuppr_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Si Aucun nom renseigné, alors les boutons sont désactivés
+            if (ComboBoxProjetsASuppr.SelectedIndex == -1)
+            {
+                ButtonSuppresionProjet.IsEnabled = false;
+            }
+            // Si un nom est renseigné, alors les boutons sont activés
+            else
+            {
+                ButtonSuppresionProjet.IsEnabled = true;
+            }
         }
 
         private void CollapseAll()
