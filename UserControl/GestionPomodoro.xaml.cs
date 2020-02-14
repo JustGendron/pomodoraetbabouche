@@ -116,23 +116,8 @@ namespace pomodoraetbabouche
 
         private void ListProjectBuild()
         {
-            List<Projet> items = new List<Projet>();
-            items.Add(new Projet() { id = 1, name = "epsi", nombrePomodoro = 8 });
-            items.Add(new Projet() { id = 2, name = "Gerard", nombrePomodoro = 5 });
-            items.Add(new Projet() { id = 3, name = "Philipe", nombrePomodoro = 6 });
-            items.Add(new Projet() { id = 4, name = "Antoine", nombrePomodoro = 4 });
-            items.Add(new Projet() { id = 5, name = "Alan", nombrePomodoro = 3 });
-            items.Add(new Projet() { id = 6, name = "kowabunga", nombrePomodoro = 12 });
-            items.Add(new Projet() { id = 6, name = "kowabunga", nombrePomodoro = 12 });
-            items.Add(new Projet() { id = 7, name = "kowabunga", nombrePomodoro = 12 });
-            items.Add(new Projet() { id = 8, name = "kowabunga", nombrePomodoro = 12 });
-            items.Add(new Projet() { id = 9, name = "kowabunga", nombrePomodoro = 12 });
-            items.Add(new Projet() { id = 10, name = "kowabunga", nombrePomodoro = 12 });
-            items.Add(new Projet() { id = 11, name = "kowabunga", nombrePomodoro = 12 });
-            items.Add(new Projet() { id = 12, name = "kowabunga", nombrePomodoro = 12 });
-            items.Add(new Projet() { id = 13, name = "kowabunga", nombrePomodoro = 12 });
-            items.Add(new Projet() { id = 14, name = "kowabunga", nombrePomodoro = 12 });
-            items.Add(new Projet() { id = 18, name = "kowabunga", nombrePomodoro = 12 });
+            SQLiteConnection connection = new SQLiteConnection(Constantes.pathDb);
+            List<Projet> items = connection.Table<Projet>().ToList();            
             NomsProjets.ItemsSource = items;
             ComboBoxProjets.ItemsSource = items;
             ComboBoxProjetsASuppr.ItemsSource = items;

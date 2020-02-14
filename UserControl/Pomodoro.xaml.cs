@@ -1,4 +1,8 @@
-﻿using System;
+﻿using pomodoraetbabouche.Class;
+using pomodoraetbabouche.Constante;
+using SQLite;
+using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,12 +19,13 @@ namespace pomodoraetbabouche
         /// Initiation des variables utilisé dans le programme
         /// </summary>
         int iteration = 1;
+        int nbpomodoro;
         Boolean workTime = true;
         Boolean finalRestBool = true;
         TimeSpan work = new TimeSpan(0, 0, 25, 0, 0);
         TimeSpan rest = new TimeSpan(0, 0, 5, 0, 0);
         TimeSpan sec = new TimeSpan(0, 0, 0, 1, 0);
-        TimeSpan finalRest = new TimeSpan(0, 0, 15, 0, 0);
+        TimeSpan finalRest = new TimeSpan(0, 0, 0, 10, 0);
         TimeSpan end = new TimeSpan(0, 0, 0, 0, 0);
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         TimeSpan tempsRestant = new TimeSpan();
@@ -30,8 +35,11 @@ namespace pomodoraetbabouche
         /// Code joué lors de l'initialisation du composant avec le Handler qui permet de faire le décompte
         /// </summary>
         public Pomodoro(MainWindow mainWindow)
-        {
+        {            
             InitializeComponent();
+            SQLiteConnection connection = new SQLiteConnection(Constantes.pathDb);
+            List<Projet> items = connection.Table<Projet>().ToList();
+            ComboBoxSelectPomodoro.ItemsSource = items;
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             tempsRestant = tempsRestant + work;
@@ -52,6 +60,7 @@ namespace pomodoraetbabouche
             if (iteration < 4)
             {
                 iterationaff.Content = iteration;
+                nbpomodoro = iteration - 1;
                 tempsRestant = tempsRestant.Subtract(sec);
                 ChronoTimer.Content = tempsRestant.ToString(@"mm\:ss");
                 // Quand le décompte arrive à 0
@@ -99,7 +108,10 @@ namespace pomodoraetbabouche
                     {
                         dispatcherTimer.Stop();
                         iterationaff.Content = "";
+                        nbpomodoro = iteration;
                         ChronoTimer.Content = "Fini !";
+                        savePomodoro();
+                        nbpomodoro = 0;
                     }
                 }
             }
@@ -114,7 +126,7 @@ namespace pomodoraetbabouche
         private void Button_Start(object sender, RoutedEventArgs e)
         {
             dispatcherTimer.Start();
-            LabelPomodoro.IsEnabled = false;
+            ComboBoxSelectPomodoro.IsEnabled = false;
         }
 
         /// <summary>
@@ -142,19 +154,20 @@ namespace pomodoraetbabouche
             tempsRestant += work;
             workTime = true;
             finalRestBool = true;
-            LabelPomodoro.IsEnabled = true;
-            LabelPomodoro.Text = "";
+            ComboBoxSelectPomodoro.IsEnabled = true;
+            savePomodoro();
+            nbpomodoro = 0;
         }
 
         /// <summary>
-        /// Permet d'obliger la saisie d'un nom pour le pomodoro, pour un enregistrement future dans la BDD
+        /// Permet d'obliger la selection d'un nom pour le pomodoro, pour un enregistrement future dans la BDD
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LabelPomodoro_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void ComboBoxSelectPomodoro_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Si Aucun nom renseigné, alors les boutons sont désactivés
-            if (LabelPomodoro.Text.Length == 0)
+            if (ComboBoxSelectPomodoro.SelectedIndex == -1)
             {
                 ButtonStart.IsEnabled = false;
                 ButtonPause.IsEnabled = false;
@@ -167,15 +180,22 @@ namespace pomodoraetbabouche
                 ButtonPause.IsEnabled = true;
                 ButtonStop.IsEnabled = true;
             }
-
         }
-        
+
         private void Storage() { 
         }
 
         private void Button_return(object sender, RoutedEventArgs e)
         {
             mw.MainPageScreen();
+        }   
+        
+        private void savePomodoro()
+        {
+            SQLiteConnection connection = new SQLiteConnection(Constantes.pathDb);
+            Projet proj = (Projet)ComboBoxSelectPomodoro.SelectedValue;            
+            proj.nombrePomodoro += nbpomodoro;
+            connection.Update(proj);
         }
     }
 }
