@@ -60,7 +60,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Statistiques" Height="50" Foreground="#FF811717" Margin="0,50,0,0" RenderTransformOrigin="0.553,2.031">
+                <Button Content="Statistiques" Height="50" Foreground="#FF811717" Margin="0,50,0,0" RenderTransformOrigin="0.553,2.031" Click="Button_Statistiques">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF3F3F3" Offset="0"/>

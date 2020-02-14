@@ -27,5 +27,32 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <DockPanel Background="Firebrick" Grid.Row="0" Grid.Column="0" Grid.RowSpan="11" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Button Content="Retour" Height="50" Foreground="#FF811717" Margin="0,350,0,0" Click="Button_retour">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>                
+            </StackPanel>
+        </DockPanel>
+        <DockPanel Background="White" Grid.Row="0" Grid.Column="2" Grid.RowSpan="11" Grid.ColumnSpan="3" x:Name="DockListeProjets">
+            <StackPanel>
+                <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20" FontWeight="Bold">Statistiques</Label>
+                <ListView Margin="10" Name="StatsProjets" MaxHeight="250">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Nom Projet" Width="Auto" DisplayMemberBinding="{Binding name}" />
+                            <GridViewColumn Header="Nombres pomodori" Width="Auto" DisplayMemberBinding="{Binding nombrePomodoro}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </UserControl>

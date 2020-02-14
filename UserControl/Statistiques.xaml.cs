@@ -1,4 +1,7 @@
-﻿using System;
+﻿using pomodoraetbabouche.Class;
+using pomodoraetbabouche.Constante;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,25 @@ namespace pomodoraetbabouche
     /// </summary>
     public partial class Statistiques : UserControl
     {
-        public Statistiques()
+        private MainWindow mw;
+
+        public Statistiques(MainWindow mainWindow)
         {
             InitializeComponent();
+            ListProjectBuild();
+            mw = mainWindow;
+        }
+
+        private void Button_retour(object sender, RoutedEventArgs e)
+        {
+            mw.MainPageScreen();
+        }
+
+        private void ListProjectBuild()
+        {
+            SQLiteConnection connection = new SQLiteConnection(Constantes.pathDb);
+            List<Projet> items = connection.Table<Projet>().OrderByDescending(x => x.nombrePomodoro).ToList();
+            StatsProjets.ItemsSource = items;
         }
     }
 }

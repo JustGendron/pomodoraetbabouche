@@ -43,6 +43,12 @@ namespace pomodoraetbabouche
             Content = pp;
         }
 
+        public void StatistiquesScreen()
+        {
+            Statistiques st = new Statistiques(this);
+            Content = st;
+        }
+
         private void CreateBDD()
         {
             // Instanciation de notre connexion

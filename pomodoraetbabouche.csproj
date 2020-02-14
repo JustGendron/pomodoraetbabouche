@@ -105,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="UserControl\Statistiques.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\PlanificationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +127,9 @@
     </Compile>
     <Compile Include="Class\Projet.cs" />
     <Compile Include="Constantes\Constantes.cs" />
+    <Compile Include="UserControl\Statistiques.xaml.cs">
+      <DependentUpon>Statistiques.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\PlanificationPage.xaml.cs">
       <DependentUpon>PlanificationPage.xaml</DependentUpon>
     </Compile>

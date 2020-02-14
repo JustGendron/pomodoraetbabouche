@@ -20,11 +20,6 @@ namespace pomodoraetbabouche
             mw = mainWindow;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
         private void Button_Chronometre(object sender, RoutedEventArgs e)
         {
             mw.PomodoroScreen();
@@ -38,6 +33,11 @@ namespace pomodoraetbabouche
         private void Button_PlanificationScreen(object sender, RoutedEventArgs e)
         {
             mw.PlanificationScreen();
+        }
+
+        private void Button_Statistiques(object sender, RoutedEventArgs e)
+        {
+            mw.StatistiquesScreen();
         }
     }
 }
