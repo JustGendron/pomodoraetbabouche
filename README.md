@@ -1,10 +1,14 @@
 # pomodoraetbabouche
 
+Pour infos, je me suis trompé de compte GitHub(Tekmur = github perso de RemsNoel)
+
 Reste a faire:
-jouer un son lors d'une fin de phase
-enregistrement en BDD
-une selectbox a la place du textBox
-Rendre tout parametrable
 
 Fait:
-Pomodoro operationnel
+Projet
+enregistrement en BDD
+recuperation
+modification
+delete
+Podomoro
+une selectbox a la place du textBox
