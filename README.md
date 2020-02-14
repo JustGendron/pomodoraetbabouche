@@ -7,9 +7,15 @@ Reste a faire:
 Fait:
 
 Projet
+
 enregistrement en BDD
+
 recuperation
+
 modification
+
 delete
+
 Podomoro
+
 une selectbox a la place du textBox
