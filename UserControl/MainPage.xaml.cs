@@ -34,5 +34,10 @@ namespace pomodoraetbabouche
         {
             mw.GestionPomodoroScreen();
         }
+
+        private void Button_PlanificationScreen(object sender, RoutedEventArgs e)
+        {
+            mw.PlanificationScreen();
+        }
     }
 }

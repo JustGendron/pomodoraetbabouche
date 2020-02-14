@@ -37,6 +37,12 @@ namespace pomodoraetbabouche
             Content = gp;
         }
 
+        public void PlanificationScreen()
+        {
+            PlanificationPage pp = new PlanificationPage(this);
+            Content = pp;
+        }
+
         private void CreateBDD()
         {
             // Instanciation de notre connexion
