@@ -74,7 +74,7 @@
         </DockPanel>
         <Label Content="PomoDora &amp; Babouche" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="234" Grid.ColumnSpan="3" Height="38" FontFamily="Comic Sans MS" FontSize="22"/>
         <Label Content="Remy Noel &amp; Justin Gendron" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="235" Height="38"/>
-        <Image Grid.ColumnSpan="3" Grid.Column="2" HorizontalAlignment="Left" Height="170" Margin="10,10,0,0" Grid.Row="4" Grid.RowSpan="5" VerticalAlignment="Top" Width="234" Source="angry.png"/>
+        <Image Grid.ColumnSpan="3" Grid.Column="2" HorizontalAlignment="Left" Height="170" Margin="10,10,0,0" Grid.Row="4" Grid.RowSpan="5" VerticalAlignment="Top" Width="234" />
 
     </Grid>
 </UserControl>

@@ -1,4 +1,6 @@
 ﻿using pomodoraetbabouche.Class;
+using pomodoraetbabouche.Constante;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,8 @@ namespace pomodoraetbabouche
     {
 
         private MainWindow mw;
+
+        private string entry;
         public GestionPomodoro(MainWindow mainWindow)
         {
             InitializeComponent();
@@ -41,18 +45,22 @@ namespace pomodoraetbabouche
         private void Button_Ajout_Projet(object sender, RoutedEventArgs e)
         {
             CollapseAll();
+            entry = "";
             DockAjouter.Visibility = Visibility.Visible;
+
         }
 
         private void Button_Modification_Projet(object sender, RoutedEventArgs e)
         {
             CollapseAll();
+            entry = "";
             DockModifProjets.Visibility = Visibility.Visible;
         }
 
         private void Button_Suppression_Projet(object sender, RoutedEventArgs e)
         {
             CollapseAll();
+            entry = "";
             DockSupprProjets.Visibility = Visibility.Visible;
         }
 
@@ -63,7 +71,11 @@ namespace pomodoraetbabouche
 
         private void Button_Ajout(object sender, RoutedEventArgs e)
         {
-
+            SQLiteConnection connection = new SQLiteConnection(Constantes.pathDb);
+            Projet pro = new Projet() { name = entry, nombrePomodoro = 0 };
+            connection.Insert(pro);
+            LabelProjet.Text = "";
+            entry = "";
         }
 
         private void Button_Modif(object sender, RoutedEventArgs e)
@@ -78,7 +90,14 @@ namespace pomodoraetbabouche
 
         private void LabelNomProjet_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            
+            if (LabelProjet.Text.Length == 0)
+            {
+                ButtonAjoutProjet.IsEnabled = false;
+            } else
+            {
+                ButtonAjoutProjet.IsEnabled = true;
+                entry = LabelProjet.Text;
+            }
         }
 
         private void LabelModifNomProjet_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)

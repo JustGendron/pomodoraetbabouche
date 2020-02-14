@@ -89,7 +89,7 @@
                 <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20" FontWeight="Bold">Ajout Projet</Label>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">Veuillez saisir le nom du Projet :</Label>
                 <TextBox x:Name="LabelProjet" HorizontalAlignment="Center" Height="35" Margin="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="LabelNomProjet_TextChanged" Grid.ColumnSpan="2" Grid.Column="1"/>
-                <Button Content="Ajout" Height="30" Width="150" Foreground="#FF811717" Margin="0,50,0,0" RenderTransformOrigin="0.553,2.031" Click="Button_Ajout">
+                <Button x:Name="ButtonAjoutProjet" Content="Ajout" Height="30" Width="150" Foreground="#FF811717" Margin="0,50,0,0" RenderTransformOrigin="0.553,2.031" Click="Button_Ajout" IsEnabled="False">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF3F3F3" Offset="0"/>

@@ -1,4 +1,8 @@
 ﻿
+using pomodoraetbabouche.Class;
+using pomodoraetbabouche.Constante;
+using SQLite;
+using System;
 using System.Windows;
 
 namespace pomodoraetbabouche
@@ -12,6 +16,7 @@ namespace pomodoraetbabouche
         {
             InitializeComponent();
             MainPageScreen();
+            CreateBDD();
         }
 
         public void MainPageScreen()
@@ -30,6 +35,13 @@ namespace pomodoraetbabouche
         {
             GestionPomodoro gp = new GestionPomodoro(this);
             Content = gp;
+        }
+
+        private void CreateBDD()
+        {
+            // Instanciation de notre connexion
+            SQLiteConnection connection = new SQLiteConnection(Constantes.pathDb);
+            connection.CreateTable<Projet>();
         }
 
     }
