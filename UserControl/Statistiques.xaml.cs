@@ -25,6 +25,10 @@ namespace pomodoraetbabouche
     {
         private MainWindow mw;
 
+        /// <summary>
+        /// Initialisation de l'ecran
+        /// </summary>
+        /// <param name="mainWindow"></param>
         public Statistiques(MainWindow mainWindow)
         {
             InitializeComponent();
@@ -32,11 +36,19 @@ namespace pomodoraetbabouche
             mw = mainWindow;
         }
 
+        /// <summary>
+        /// Methode pour retourner sur la page principale
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_retour(object sender, RoutedEventArgs e)
         {
             mw.MainPageScreen();
         }
 
+        /// <summary>
+        /// Methode pour récuperer et afficher les projets et leurs pomodori
+        /// </summary>
         private void ListProjectBuild()
         {
             SQLiteConnection connection = new SQLiteConnection(Constantes.pathDb);

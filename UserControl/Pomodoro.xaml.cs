@@ -182,14 +182,19 @@ namespace pomodoraetbabouche
             }
         }
 
-        private void Storage() { 
-        }
-
+        /// <summary>
+        /// Methode pour retourner sur la page principale
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_return(object sender, RoutedEventArgs e)
         {
             mw.MainPageScreen();
         }   
         
+        /// <summary>
+        /// Methode pour update la quantitée de pomodori effetuer en selectionnant le projet de la combobox
+        /// </summary>
         private void savePomodoro()
         {
             SQLiteConnection connection = new SQLiteConnection(Constantes.pathDb);
